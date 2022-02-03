@@ -1,4 +1,4 @@
-;Memory to Register
+;Register to Memory
 lxi H, 0AFDH
 ;initialized HL Pair with a value
 mvi A,25H
