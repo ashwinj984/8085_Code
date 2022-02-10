@@ -31,8 +31,6 @@ ADD D
 MOV M,A
 SUB A
 INR L
-JNC JUMP
-INR C
-JUMP:DCR B
+DCR B
 JNZ loop
 hlt
