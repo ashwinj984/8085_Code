@@ -1,0 +1,29 @@
+;8-bit Division between two numbers.   
+;Fetch them from memory and store them back to memory.
+
+JMP START
+START:LXI H, 00A5H
+MVI A,48H;dividend
+MOV M,A
+INX H
+MVI A,12H;divisor
+MOV M,A
+
+; CODE FOR division
+LDA 00A6H
+;zero checking
+ADI 00H
+JZ EXIT
+MOV C,A
+LDA 00A5H
+MVI E,00H;WILL STORE QUOTIENT HERE
+BACK:CMP C
+JC NEXT
+SUB C
+INR E
+JMP BACK
+NEXT:STA 00A8H;REMAINDER STORING
+MOV A,E
+STA 00A7H; QUOTIENT STORING
+EXIT:HLT
+
